@@ -9,48 +9,33 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class LoginAtlassianAccountTest {
-    WebDriver wd;
+public class LoginAtlassianAccountTest extends TestBase{
 
     @BeforeMethod
-    public  void setUp(){
-        wd = new ChromeDriver();
-        wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        wd.manage().window().maximize();
-        wd.navigate().to("https://trello.com/");
-    }
-
-    @Test
-    public void testAtlassianLogin() throws InterruptedException {
+    public void preconditions() throws InterruptedException {
         clickLoginButton();
         fillLoginForm();
         confirmLogin();
     }
 
-    private void confirmLogin() {
-        wd.findElement(By.cssSelector("#login-submit")).click();
+
+    @Test
+    public void testAtlassianLogin() {
+        initBoardCreationFoardsList();
+        wd.findElement(By.xpath("//input[@data-test-id='create-board-title-input']")).click();
+        wd.findElement(By.xpath("//input[@data-test-id='create-board-title-input']")).clear();
+        wd.findElement(By.xpath("//input[@data-test-id='create-board-title-input']")).sendKeys("board");
+
+        wd.findElement(By.xpath("//*[@aria-label='DownIcon']/../..")).click();
+        wd.findElement(By.xpath("//*[@aria-label='PublicIcon']/../..")).click();
+
+        wd.findElement(By.cssSelector("._21upOlzpUQJcdT.gkv95EhjCrfcEU")).click();
+        wd.findElement(By.cssSelector("[data-test-id='create-board-submit-button']")).click();
+
+
     }
 
-    private void fillLoginForm() throws InterruptedException {
-        wd.findElement(By.cssSelector("#user")).click();
-        wd.findElement(By.cssSelector("#user")).clear();
-        wd.findElement(By.cssSelector("#user")).sendKeys("rochman.elena@gmail.com");
-Thread.sleep(2000);
-        wd.findElement(By.cssSelector("#login")).click();
-
-        //
-        wd.findElement(By.cssSelector("#password")).click();
-        wd.findElement(By.cssSelector("#password")).clear();
-        wd.findElement(By.cssSelector("#password")).sendKeys("12345.com");
-
-    }
-
-    private void clickLoginButton() {
-        wd.findElement(By.cssSelector("[href='/login']")).click();
-    }
-
-    @AfterMethod
-    public void tearDown(){
-        wd.quit();
+    public void initBoardCreationFoardsList() {
+        wd.findElement(By.xpath("//*[@data-test-id='create-board-tile']")).click();
     }
 }
