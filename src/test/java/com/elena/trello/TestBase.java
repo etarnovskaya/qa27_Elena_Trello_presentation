@@ -3,6 +3,7 @@ package com.elena.trello;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -17,7 +18,7 @@ public class TestBase {
         wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         wd.manage().window().maximize();
         wd.navigate().to("https://trello.com/");
-    }
+           }
 
     @AfterMethod
     public void tearDown(){
@@ -27,24 +28,30 @@ public class TestBase {
     //______________________________________________________________________________
 
     public void confirmLogin() {
-        wd.findElement(By.cssSelector("#login-submit")).click();
+        click(By.cssSelector("#login-submit"));
     }
 
-    public void fillLoginForm() throws InterruptedException {
-        wd.findElement(By.cssSelector("#user")).click();
-        wd.findElement(By.cssSelector("#user")).clear();
-        wd.findElement(By.cssSelector("#user")).sendKeys("rochman.elena@gmail.com");
+
+
+    public void fillLoginForm(String email, String password) throws InterruptedException {
+        type(By.cssSelector("#user"), email);
         Thread.sleep(2000);
-        wd.findElement(By.cssSelector("#login")).click();
-
-        //
-        wd.findElement(By.cssSelector("#password")).click();
-        wd.findElement(By.cssSelector("#password")).clear();
-        wd.findElement(By.cssSelector("#password")).sendKeys("12345.com");
-
+        click(By.cssSelector("#login"));
+        type(By.cssSelector("#password"), password);
     }
+
+    public void type(By locator, String text) {
+        click(locator);
+        wd.findElement(locator).clear();
+        wd.findElement(locator).sendKeys(text);
+    }
+
+    public void click(By locator) {
+        wd.findElement(locator).click();
+    }
+
 
     public void clickLoginButton() {
-        wd.findElement(By.cssSelector("[href='/login']")).click();
+        click(By.cssSelector("[href='/login']"));
     }
 }
