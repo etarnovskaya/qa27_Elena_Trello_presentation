@@ -1,4 +1,4 @@
-package com.elena.trello;
+package com.elena.trello.model;
 
 public class User {
     private  String email;

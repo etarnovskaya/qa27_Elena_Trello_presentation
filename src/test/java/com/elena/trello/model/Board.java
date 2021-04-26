@@ -1,4 +1,4 @@
-package com.elena.trello;
+package com.elena.trello.model;
 
 public class Board {
     private  String boardName;
