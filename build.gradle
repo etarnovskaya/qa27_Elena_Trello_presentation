@@ -17,3 +17,12 @@ dependencies {
 test {
     useTestNG()
 }
+
+task firstTest(type: Test) {
+
+    useTestNG {
+        if(project.hasProperty('browser')){
+            systemProperty 'browser', "${browser}"
+        }
+    }
+}
