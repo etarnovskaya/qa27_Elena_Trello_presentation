@@ -48,4 +48,12 @@ public class ApplicationManager{
     public BoardHelper getBoard() {
         return board;
     }
+
+    public String getCurrentURL() {
+       return wd.getCurrentUrl();
+    }
+
+    public void goURL(String url) {
+        wd.get(url);
+    }
 }

@@ -26,3 +26,23 @@ task firstTest(type: Test) {
         }
     }
 }
+
+task sanity(type: Test) {
+    useTestNG {
+       suites 'src/test/resources/testng-sanity.xml'
+    }
+        if(project.hasProperty('browser')){
+            systemProperty 'browser', "${browser}"
+
+    }
+}
+
+task login(type: Test) {
+    useTestNG {
+        suites 'src/test/resources/testng-loginonly.xml'
+    }
+    if(project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+
+    }
+}

@@ -2,9 +2,18 @@ package com.elena.trello.tests;
 
 import com.elena.trello.model.User;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LoginAtlassianAccountTest extends TestBase{
+    @BeforeMethod
+    public void preconditions(){
+        if(app.getUser().isAvatarPresent()){
+            app.getUser().logout();
+           app.goURL("https://trello.com");
+        }
+    }
+
     /*1. click login button
     * 2. fill login form (hhh@hhh.com / 12345)
     * 3. confirm login
@@ -18,7 +27,7 @@ public class LoginAtlassianAccountTest extends TestBase{
                 .withEmail("rochman.elena@gmail.com")
                 .withPassword("12345.com"));
         app.getUser().confirmLogin();
-
+Thread.sleep(3000);
         Assert.assertTrue(
                 app.getUser().isAvatarPresent());
 

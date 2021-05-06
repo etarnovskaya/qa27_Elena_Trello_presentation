@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1" >
+       <test name="SanityTests">
+        <classes>
+            <class name="com.elena.trello.tests.LoginAtlassianAccountTest"/>
+            <class name="com.elena.trello.tests.BoardCreationTests"/>
+        </classes>
+    </test>
+</suite>
