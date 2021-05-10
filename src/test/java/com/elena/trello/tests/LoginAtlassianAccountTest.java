@@ -1,11 +1,15 @@
 package com.elena.trello.tests;
 
 import com.elena.trello.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LoginAtlassianAccountTest extends TestBase{
+
+
     @BeforeMethod
     public void preconditions(){
         if(app.getUser().isAvatarPresent()){
@@ -14,14 +18,9 @@ public class LoginAtlassianAccountTest extends TestBase{
         }
     }
 
-    /*1. click login button
-    * 2. fill login form (hhh@hhh.com / 12345)
-    * 3. confirm login
-    *
-    * expected result: user logged in, on the header avatar present,
-    * logOut button available*/
     @Test
     public void testloginAtlassian() throws InterruptedException {
+
         app.getUser().clickLoginButton();
         app.getUser().fillLoginForm(new User()
                 .withEmail("rochman.elena@gmail.com")
