@@ -12,6 +12,7 @@
             </class>
 
             <class name="com.elena.trello.tests.BoardCreationTests"/>
+            <class name="com.elena.trello.tests.BoardDeletionTests"/>
         </classes>
     </test>
 </suite>

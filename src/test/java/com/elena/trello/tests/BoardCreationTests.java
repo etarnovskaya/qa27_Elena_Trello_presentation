@@ -22,7 +22,7 @@ public class BoardCreationTests extends TestBase {
     @Test
     public void testBoardCreation() {
         app.getBoard().initBoardCreationFromBoardsList();
-        app.getBoard().fillBoardCreationForm(new Board("board" + TimeUnit.SECONDS, "PublicIcon"));
+        app.getBoard().fillBoardCreationForm(new Board("board" + System.currentTimeMillis(), "PublicIcon"));
 
         app.getBoard().submitBoardCreationForm();
     }
