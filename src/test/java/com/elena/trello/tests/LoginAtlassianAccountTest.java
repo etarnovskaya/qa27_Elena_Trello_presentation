@@ -24,11 +24,11 @@ public class LoginAtlassianAccountTest extends TestBase{
         app.getUser().clickLoginButton();
         app.getUser().fillLoginForm(new User()
                 .withEmail("rochman.elena@gmail.com")
-                .withPassword("12345.com"));
+                .withPassword("1234.com"));
         app.getUser().confirmLogin();
 Thread.sleep(3000);
         Assert.assertTrue(
-                app.getUser().isAvatarPresent());
+                app.getUser().isAvatarPresent(), "Avatar isn't present- user not logged in");
 
       //  Assert.assertEquals(wd.findElement(By.cssSelector("[data-test-id=header-member-menu-button]")).getAttribute("title"),"rochman.elena (rochmanelena)");
 
