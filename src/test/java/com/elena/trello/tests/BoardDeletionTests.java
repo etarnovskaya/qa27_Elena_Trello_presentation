@@ -14,6 +14,7 @@ public class BoardDeletionTests extends  TestBase{
             app.getUser().confirmLogin();
         }
         if(!app.getBoard().isThereABoard()){
+
             app.getBoard().createBoard();
         }
     }
@@ -22,13 +23,13 @@ public class BoardDeletionTests extends  TestBase{
     public void testBoardDeletion(){
 
         int count = app.getBoard().getBoardsCount();
-     //  while (count > 3) {
+       while (count > 1) {
             app.getBoard().openFirstBoard();
             app.getBoard().openMenu();
             app.getBoard().openExtendedMenu();
             app.getBoard().deleteBoard();
             app.getHeader().goHome();
-         //   count = app.getBoard().getBoardsCount();
-    //    }
+           count = app.getBoard().getBoardsCount();
+       }
     }
 }

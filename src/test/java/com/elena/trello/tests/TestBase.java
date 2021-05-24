@@ -14,6 +14,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 
 public class TestBase {
@@ -55,8 +56,9 @@ public static  class MyListener extends AbstractWebDriverEventListener{
 
 //    ______________________________________________________
     @BeforeMethod
-    public void startLogger(Method m){
-       logger.info("Start method " + m.getName());
+    public void startLogger(Method m, Object[] p){
+
+        logger.info("Start method " + m.getName() + " with parameters: " + Arrays.asList(p) );
     }
 
     @AfterMethod(alwaysRun = true)

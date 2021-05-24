@@ -1,6 +1,0 @@
-21:41:24  INFO  com.elena.trello.tests.TestBase - Start method testloginAtlassian
-21:42:03  INFO  com.elena.trello.tests.TestBase - Stop method testloginAtlassian
-21:42:03  INFO  com.elena.trello.tests.TestBase - Start method negativeTestLogin
-21:42:24  INFO  com.elena.trello.tests.TestBase - Stop method negativeTestLogin
-21:42:24  INFO  com.elena.trello.tests.TestBase - Start method negativeTestLoginwithoutPassword
-21:42:43  INFO  com.elena.trello.tests.TestBase - Stop method negativeTestLoginwithoutPassword
