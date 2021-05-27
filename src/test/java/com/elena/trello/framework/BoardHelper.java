@@ -71,4 +71,12 @@ public class BoardHelper extends HelperBase{
     public int getBoardsCount() {
         return wd.findElements(By.cssSelector(".boards-page-board-section-list-item")).size()-1;
     }
+
+    public boolean popUpConfirmPublic() {
+        return isElementPresent(By.xpath("//button[@class='_3TTqkG5muwOzqZ _3cQ5itsQUVGg7o _3HfJ71CiQ9nm2y']"));
+    }
+
+    public void confirmPublic() {
+        click(By.cssSelector("._3cQ5itsQUVGg7o._3HfJ71CiQ9nm2y"));
+    }
 }

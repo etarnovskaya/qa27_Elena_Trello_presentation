@@ -51,6 +51,10 @@ public class BoardCreationTests extends TestBase {
                 .setBoardName("111" + System.currentTimeMillis())
                 .setVisibility("PublicIcon"));
 
+        if(app.getBoard().popUpConfirmPublic()){
+            app.getBoard().confirmPublic();
+        }
+
         app.getBoard().submitBoardCreationForm();
     }
 
