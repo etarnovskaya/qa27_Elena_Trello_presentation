@@ -26,7 +26,7 @@ public class LoginAtlassianAccountTest extends TestBase{
 
     }
 
-    @Test(enabled= falce)
+    @Test
     public void negativeTestLogin() throws InterruptedException {
         app.getUser().clickLoginButton();
         app.getUser().fillLoginForm(new User().withEmail("rochman.elena@gmail.com").withPassword("12345.cOm"));
