@@ -22,6 +22,9 @@ public class LoginAtlassianAccountTest extends TestBase{
                 .withPassword("12345.com"));
         app.getUser().confirmLogin();
         Assert.assertTrue(
+            
+            
+            
                 app.getUser().isAvatarPresent(), "Avatar isn't present- user not logged in");
 
     }
