@@ -6,8 +6,8 @@
             <class name="com.elena.trello.tests.LoginAtlassianAccountTest">
                 <methods>
                     <include name="testloginAtlassian"/>
-                    <include name="negativeTestLogin"/>
-                    <include name="negativeTestLoginwithoutPassword"/>
+                    <exclude name="negativeTestLogin"/>
+                    <exclude name="negativeTestLoginwithoutPassword"/>
                 </methods>
             </class>
 

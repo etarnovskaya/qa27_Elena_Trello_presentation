@@ -47,4 +47,8 @@ try{
 
     }
 
+    public String getTitle() {
+        return wd.findElement(By.tagName("h1")).getText();
+
+    }
 }

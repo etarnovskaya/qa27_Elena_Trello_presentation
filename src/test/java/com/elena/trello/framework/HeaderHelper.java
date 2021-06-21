@@ -15,4 +15,9 @@ public class HeaderHelper extends HelperBase{
     public boolean buttonPlusPresent() {
         return isElementPresent(By.cssSelector("[data-test-id='header-create-menu-button']"));
     }
+
+    public void clickOnAvatar() {
+        click(By.cssSelector("[data-test-id='header-member-menu-button']"));
+
+    }
 }
